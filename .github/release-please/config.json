@@ -1,0 +1,27 @@
+{
+  "release-type": "terraform-module",
+  "bump-minor-pre-major": true,
+  "bump-patch-for-minor-pre-major": true,
+  "initial-version": "0.1.0",
+  "separate-pull-requests": true,
+  "packages": {
+    "terraform-modules/spectrum": {
+      "component": "terraform-module-spectrum",
+      "extra-files": [
+        "/examples/k3s/spectrum.tf",
+        "/examples/talos/spectrum.tf"
+      ]
+    },
+    "terraform-modules/k3s": {
+      "component": "terraform-module-k3s",
+      "extra-files": ["/examples/k3s/main.tf"]
+    },
+    "terraform-modules/talos": {
+      "component": "terraform-module-talos",
+      "extra-files": ["/examples/talos/main.tf"]
+    },
+    "flux": {
+      "component": "spectrum"
+    }
+  }
+}

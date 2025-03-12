@@ -1,0 +1,15 @@
+name: tests
+
+on:
+  workflow_call:
+    inputs:
+      env:
+        type: string
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: some tests
+        run: |
+          sleep 20

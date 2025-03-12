@@ -1,0 +1,34 @@
+name: Deploy
+
+on:
+  workflow_call:
+    inputs:
+      env:
+        required: true
+        type: string
+    secrets:
+      GITHUB_TOKEN:
+        required: true
+
+jobs:
+  deploy:
+    name: Merge to canary branch
+    uses: ./.github/workflows/fast-forward.yml
+    with:
+      env: ${{ inputs.env }}-canary
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  
+  tests:
+    name: Run smoke tests
+    uses: ./.github/workflows/tests.yml
+    with:
+      env: ${{ inputs.env }}
+
+  merge:
+    name: Merge to release branch
+    uses: ./.github/workflows/fast-forward.yml
+    with:
+      env: ${{ inputs.env }}
+    secrets:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

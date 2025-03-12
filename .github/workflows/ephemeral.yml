@@ -1,0 +1,24 @@
+name: Create ephemeral cluster
+
+on:
+  workflow_call:
+    inputs:
+      branch:
+        description: "Source branch for flux"
+        required: true
+        type: string
+
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout target branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.target_branch }}
+
+      - name: terraform apply
+        env:
+          ENV: ${{ inputs.branch }}
+        run: |
+          echo "terraform creates cluster from a branch"
