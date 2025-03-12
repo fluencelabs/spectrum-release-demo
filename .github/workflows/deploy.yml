@@ -7,7 +7,7 @@ on:
         required: true
         type: string
     secrets:
-      GITHUB_TOKEN:
+      token:
         required: true
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
     with:
       env: ${{ inputs.env }}-canary
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      token: ${{ secrets.token }}
   
   tests:
     name: Run smoke tests
@@ -31,4 +31,4 @@ jobs:
     with:
       env: ${{ inputs.env }}
     secrets:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      token: ${{ secrets.token }}

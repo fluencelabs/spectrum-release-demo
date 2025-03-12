@@ -35,7 +35,7 @@ jobs:
     with:
       env: testnet
     secrets:
-      GITHUB_TOKEN: ${{ secrets.FLUENCEBOT_RELEASE_PLEASE_PAT }}
+      token: ${{ secrets.FLUENCEBOT_RELEASE_PLEASE_PAT }}
 
   mainnet:
     if: needs.release-please.outputs.spectrum-release-created
@@ -46,4 +46,4 @@ jobs:
     with:
       env: mainnet
     secrets:
-      GITHUB_TOKEN: ${{ secrets.FLUENCEBOT_RELEASE_PLEASE_PAT }}
+      token: ${{ secrets.FLUENCEBOT_RELEASE_PLEASE_PAT }}
