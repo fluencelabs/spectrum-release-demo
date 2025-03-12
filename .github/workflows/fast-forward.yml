@@ -24,12 +24,11 @@ jobs:
       - name: Fetch source branch
         run: |
           git fetch origin main
-          git branch -a
 
       - name: Check fast-forward merge possibility
         run: |
           # Ensure that the target branch is an ancestor of the source branch
-          if git merge-base --is-ancestor ${{ vars.BRANCH }} main; then
+          if git merge-base --is-ancestor ${{ vars.BRANCH }} origin/main; then
             echo "Fast-forward merge possible."
           else
             echo "Error: The merge is not a fast-forward merge. Exiting."
@@ -38,7 +37,7 @@ jobs:
 
       - name: Merge source branch into target branch
         run: |
-          git merge --ff-only main
+          git merge --ff-only origin/main
 
       - name: Push changes
         run: |
