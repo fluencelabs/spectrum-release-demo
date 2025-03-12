@@ -24,6 +24,7 @@ jobs:
       - name: Fetch source branch
         run: |
           git fetch origin main
+          git branch -a
 
       - name: Check fast-forward merge possibility
         run: |
