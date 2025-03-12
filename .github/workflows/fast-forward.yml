@@ -18,11 +18,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ vars.BRANCH }}
-          token: ${{ secrets.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Fetch source branch
         run: |
-          git fetch origin main:${{ vars.BRANCH }}
+          git fetch origin main
 
       - name: Check fast-forward merge possibility
         run: |
