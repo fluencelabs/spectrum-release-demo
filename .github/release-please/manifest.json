@@ -2,5 +2,5 @@
   "terraform-modules/talos": "0.2.1",
   "terraform-modules/spectrum": "0.1.2",
   "terraform-modules/k3s": "0.1.0",
-  "flux": "0.1.2"
+  "flux": "0.1.3"
 }
