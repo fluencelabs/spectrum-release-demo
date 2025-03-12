@@ -12,6 +12,9 @@ jobs:
   release-please:
     runs-on: ubuntu-latest
 
+    outputs:
+      spectrum-release-created: ${{ steps.release.outputs['flux--release_created'] }}
+
     steps:
       - name: Run release-please
         id: release
