@@ -1,24 +1,25 @@
-name: Create ephemeral cluster
+name: ephemeral
 
 on:
-  workflow_call:
-    inputs:
-      branch:
-        description: "Source branch for flux"
-        required: true
-        type: string
+  pull_request:
+
+concurrency:
+  group: "${{ github.workflow }}-${{ github.ref }}"
 
 jobs:
-  merge:
+  create:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout target branch
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ inputs.target_branch }}
-
       - name: terraform apply
-        env:
-          ENV: ${{ inputs.branch }}
         run: |
-          echo "terraform creates cluster from a branch"
+          echo "terraform creates cluster"
+
+jobs:
+  k8s:
+    uses: ./.github/workflows/terraform.yml
+    with:
+      command: create
+      workspace: "spectrum-${{ github.event.number }}"
+      branch: ${{ github.event.pull_request.head.ref }}
+    secrets:
+      PAT: ${{ secrets.FLUENCEBOT_RELEASE_PLEASE_PAT }}

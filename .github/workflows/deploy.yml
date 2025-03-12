@@ -20,12 +20,14 @@ jobs:
       token: ${{ secrets.token }}
   
   tests:
+    needs: deploy
     name: Run smoke tests
     uses: ./.github/workflows/tests.yml
     with:
       env: ${{ inputs.env }}
 
   merge:
+    needs: tests
     name: Merge to release branch
     uses: ./.github/workflows/fast-forward.yml
     with:
