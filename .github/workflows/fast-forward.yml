@@ -19,6 +19,7 @@ jobs:
         with:
           ref: ${{ vars.BRANCH }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Fetch source branch
         run: |
