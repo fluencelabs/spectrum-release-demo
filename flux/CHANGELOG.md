@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/fluencelabs/spectrum-release-demo/compare/spectrum-v0.1.3...spectrum-v0.1.4) (2025-03-12)
+
+
+### Bug Fixes
+
+* Some fixes ([232efd5](https://github.com/fluencelabs/spectrum-release-demo/commit/232efd50dd75e39dddd07a4eb309a4248318a5d6))
+
 ## [0.1.3](https://github.com/fluencelabs/spectrum-release-demo/compare/spectrum-v0.1.2...spectrum-v0.1.3) (2025-03-12)
 
 
