@@ -1,0 +1,34 @@
+machine:
+  network:
+    hostname: ${hostname}
+  install:
+      diskSelector:
+        size: '>= 100GB'
+      image: ghcr.io/siderolabs/installer:v1.9.2
+      bootloader: true
+      wipe: true
+  kubelet:
+    extraArgs:
+      rotate-server-certificates: true
+    extraConfig:
+      cpuManagerPolicy: "static"
+      cpuManagerPolicyOptions:
+        full-pcpus-only: "true"
+
+cluster:
+  allowSchedulingOnControlPlanes: true
+  network:
+    cni:
+      name: none
+  proxy:
+    disabled: true
+
+  controllerManager:
+    # for prometheus to scrape
+    extraArgs:
+      bind-address: 0.0.0.0
+      
+  scheduler:
+    # for prometheus to scrape
+    extraArgs:
+      bind-address: 0.0.0.0

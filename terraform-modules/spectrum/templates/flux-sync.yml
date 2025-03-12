@@ -1,0 +1,26 @@
+gitRepository:
+  spec:
+    url: "https://github.com/fluencelabs/spectrum.git"
+    interval: "1m"
+    ref:
+      branch: ${network}
+
+kustomization:
+  spec:
+    interval: "1m0s"
+    path: "./flux/clusters/${cluster}"
+    validation: "client"
+    prune: true
+    %{ if variables != null }
+    postBuild:
+      substitute:
+        %{ for key, value in variables }
+        ${key}: ${value}
+        %{ endfor }
+    %{ endif }
+#
+# kustomizationlist:
+#   - spec:
+#       interval: 1m0s
+#       path: "./flux/core/lightmare/app"
+#       prune: true
