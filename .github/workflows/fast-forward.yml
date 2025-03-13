@@ -11,6 +11,7 @@ on:
 
 jobs:
   merge:
+    name: Fast forward merge
     environment: ${{ inputs.env }}
     runs-on: ubuntu-latest
     steps:
