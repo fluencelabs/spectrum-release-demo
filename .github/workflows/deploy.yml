@@ -20,6 +20,7 @@ jobs:
       token: ${{ secrets.token }}
   
   tests:
+    name: Run k8s e2e tests
     needs: deploy
     name: Run smoke tests
     uses: ./.github/workflows/tests.yml
@@ -27,6 +28,7 @@ jobs:
       env: ${{ inputs.env }}
 
   merge:
+    name: Merge to release branch
     needs: tests
     name: Merge to release branch
     uses: ./.github/workflows/fast-forward.yml

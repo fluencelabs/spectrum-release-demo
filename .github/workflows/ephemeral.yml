@@ -8,18 +8,12 @@ concurrency:
 
 jobs:
   create:
+    name: Create ephemeral cluster
     runs-on: ubuntu-latest
     steps:
       - name: terraform apply
         run: |
           echo "terraform creates cluster"
 
-jobs:
-  k8s:
-    uses: ./.github/workflows/terraform.yml
-    with:
-      command: create
-      workspace: "spectrum-${{ github.event.number }}"
-      branch: ${{ github.event.pull_request.head.ref }}
-    secrets:
-      PAT: ${{ secrets.FLUENCEBOT_RELEASE_PLEASE_PAT }}
+  tests:
+    uses: ./.github/workflows/tests.yml
