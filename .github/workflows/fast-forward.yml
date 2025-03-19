@@ -5,6 +5,8 @@ on:
     inputs:
       env:
         type: string
+      source:
+        type: string
     secrets:
       token:
         required: true
@@ -18,18 +20,18 @@ jobs:
       - name: Checkout target branch
         uses: actions/checkout@v4
         with:
-          ref: ${{ vars.BRANCH }}
+          ref: ${{ inputs.env }}
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Fetch source branch
         run: |
-          git fetch origin main
+          git fetch origin ${{ inputs.source }}
 
       - name: Check fast-forward merge possibility
         run: |
           # Ensure that the target branch is an ancestor of the source branch
-          if git merge-base --is-ancestor ${{ vars.BRANCH }} origin/main; then
+          if git merge-base --is-ancestor ${{ inputs.env }} origin/${{ inputs.source }}; then
             echo "Fast-forward merge possible."
           else
             echo "Error: The merge is not a fast-forward merge. Exiting."
@@ -38,8 +40,8 @@ jobs:
 
       - name: Merge source branch into target branch
         run: |
-          git merge --ff-only origin/main
+          git merge --ff-only origin/${{ inputs.soure }}
 
       - name: Push changes
         run: |
-          git push origin ${{ vars.BRANCH }}
+          git push origin ${{ inputs.env }}

@@ -6,6 +6,9 @@ on:
       env:
         required: true
         type: string
+      source:
+        required: true
+        type: string
     secrets:
       token:
         required: true
@@ -16,6 +19,7 @@ jobs:
     uses: ./.github/workflows/fast-forward.yml
     with:
       env: ${{ inputs.env }}-canary
+      source: ${{ inputs.source }}
     secrets:
       token: ${{ secrets.token }}
   
@@ -32,5 +36,6 @@ jobs:
     uses: ./.github/workflows/fast-forward.yml
     with:
       env: ${{ inputs.env }}
+      source: ${{ inputs.source }}
     secrets:
       token: ${{ secrets.token }}
