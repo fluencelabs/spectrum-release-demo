@@ -5,8 +5,10 @@ on:
     inputs:
       env:
         type: string
+        required: true
       source:
         type: string
+        required: true
     secrets:
       token:
         required: true
