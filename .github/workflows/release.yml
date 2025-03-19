@@ -38,7 +38,7 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     with:
       env: testnet
-      source: needs.release-please.outputs.spectrum-tag
+      source: ${{ needs.release-please.outputs.spectrum-tag }}
     secrets:
       token: ${{ secrets.FLUENCEBOT_RELEASE_PLEASE_PAT }}
 
@@ -50,6 +50,6 @@ jobs:
     uses: ./.github/workflows/deploy.yml
     with:
       env: mainnet
-      source: needs.release-please.outputs.spectrum-tag
+      source: ${{ needs.release-please.outputs.spectrum-tag }}
     secrets:
       token: ${{ secrets.FLUENCEBOT_RELEASE_PLEASE_PAT }}
