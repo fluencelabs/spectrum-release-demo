@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.8](https://github.com/fluencelabs/spectrum-release-demo/compare/spectrum-v0.1.7...spectrum-v0.1.8) (2025-03-19)
+
+
+### Bug Fixes
+
+* Update lightmare ([0f3eff6](https://github.com/fluencelabs/spectrum-release-demo/commit/0f3eff62aae30a76e02dafcf6a35b962e7e110c9))
+
 ## [0.1.7](https://github.com/fluencelabs/spectrum-release-demo/compare/spectrum-v0.1.6...spectrum-v0.1.7) (2025-03-19)
 
 
