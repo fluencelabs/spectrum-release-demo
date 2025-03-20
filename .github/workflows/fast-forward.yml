@@ -23,7 +23,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ inputs.env }}
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.token }}
           fetch-depth: 0
 
       - name: Fetch source branch
