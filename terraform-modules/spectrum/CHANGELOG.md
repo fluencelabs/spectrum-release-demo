@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/fluencelabs/spectrum-release-demo/compare/terraform-module-spectrum-v0.1.2...terraform-module-spectrum-v0.1.3) (2025-03-20)
+
+
+### Bug Fixes
+
+* Add terraform modules ([07c7011](https://github.com/fluencelabs/spectrum-release-demo/commit/07c701100af775c631db39856ce0a39d3409ca59))
+
 ## [0.1.2](https://github.com/fluencelabs/spectrum/compare/terraform-module-spectrum-v0.1.1...terraform-module-spectrum-v0.1.2) (2025-02-19)
 
 
