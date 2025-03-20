@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/fluencelabs/spectrum-release-demo/compare/terraform-module-talos-v0.2.1...terraform-module-talos-v0.2.2) (2025-03-20)
+
+
+### Bug Fixes
+
+* Add terraform modules ([07c7011](https://github.com/fluencelabs/spectrum-release-demo/commit/07c701100af775c631db39856ce0a39d3409ca59))
+
 ## [0.2.1](https://github.com/fluencelabs/spectrum/compare/terraform-module-talos-v0.2.0...terraform-module-talos-v0.2.1) (2025-01-23)
 
 
